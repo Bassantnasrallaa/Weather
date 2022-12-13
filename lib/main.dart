@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context)=>WeatherCubit()..getWeather(),
+      create: (context)=>WeatherCubit(),
       child: const MaterialApp(
           title: 'Weather',
           debugShowCheckedModeBanner: false,

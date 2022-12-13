@@ -33,6 +33,7 @@ class _GetLocationScreenState extends State<GetLocationScreen> {
     return BlocProvider(
         create: (context) => WeatherCubit(),
         child: Scaffold(
+          backgroundColor: Colors.grey[400],
           body: Center(
             child: ElevatedButton(
                 onPressed: () async {

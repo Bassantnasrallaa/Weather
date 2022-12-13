@@ -20,12 +20,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String formattedTime = DateFormat.jm().format(DateTime.now());
   String hour = DateFormat('a').format(DateTime.now());
-  Timer? _timer;
+  Timer? timer;
 
   @override
   void initState() {
     super.initState();
-    _timer =
+    timer =
         Timer.periodic(const Duration(milliseconds: 500), (timer) => _update());
   }
 
@@ -357,16 +357,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-                  // floatingActionButton: FloatingActionButton(
-                  //   backgroundColor: Colors.blue[800],
-                  //   onPressed: (){
-                  //     Navigator.push(context,MaterialPageRoute(builder: (context)=> SearchScreen()));
-                  //   },
-                  //   child: const Icon(
-                  //     Icons.search,
-                  //     size: 30,
-                  //   ),
-                  // ),
+                  floatingActionButton: FloatingActionButton(
+                    backgroundColor: Colors.blue[800],
+                    onPressed: (){
+                      Navigator.push(context,MaterialPageRoute(builder: (context)=> SearchScreen()));
+                    },
+                    child: const Icon(
+                      Icons.search,
+                      size: 30,
+                    ),
+                  ),
                 );
               },
               fallback: (context)=> Center(child: LoadingAnimationWidget.staggeredDotsWave(
