@@ -26,10 +26,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     timer =
-        Timer.periodic(const Duration(milliseconds: 500), (timer) => _update());
+        Timer.periodic(const Duration(milliseconds: 500), (timer) => update());
   }
 
-  void _update() {
+  void update() {
     setState(() {
       formattedTime = DateFormat.jm().format(DateTime.now());
       hour = DateFormat('a').format(DateTime.now());
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return BlocBuilder<WeatherCubit, WeatherState>(
         builder: (context, state) {
           return  ConditionalBuilder(
-              condition: state is WeatherSuccessState,
+              condition: WeatherCubit.get(context).model !=null,
               builder: (context){
                 return Scaffold(
                   body: Container(
@@ -360,7 +360,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   floatingActionButton: FloatingActionButton(
                     backgroundColor: Colors.blue[800],
                     onPressed: (){
-                      Navigator.push(context,MaterialPageRoute(builder: (context)=> SearchScreen()));
+                      Navigator.push(context,MaterialPageRoute(builder: (context)=> const SearchScreen()));
                     },
                     child: const Icon(
                       Icons.search,
